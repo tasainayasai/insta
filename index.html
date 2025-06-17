@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instagram風UI（見た目だけ）</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #fafafa;
+      display: flex;
+      justify-content: center;
+    }
+
+    .insta-container {
+      width: 390px;
+      background: #fff;
+      border: 1px solid #ccc;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stories {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .story {
+      flex: 0 0 auto;
+      text-align: center;
+      margin-right: 12px;
+    }
+
+    .story img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #c13584;
+      padding: 2px;
+    }
+
+    .story span {
+      font-size: 12px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .post {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post-header .username {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .post-img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .post-icons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      font-size: 22px;
+    }
+
+    .post-icons i {
+      margin-right: 10px;
+      cursor: default;
+    }
+
+    .likes,
+    .caption,
+    .time {
+      padding: 0 12px;
+      font-size: 14px;
+    }
+
+    .caption .username {
+      font-weight: bold;
+      margin-right: 6px;
+    }
+
+    .time {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    /* ナビゲーションバー */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 390px;
+      height: 52px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .bottom-nav i {
+      font-size: 22px;
+      color: #000;
+    }
+
+    /* スクロールバー非表示 */
+    .stories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stories {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="insta-container">
+    <!-- ストーリー -->
+    <div class="stories">
+      <div class="story"><img src="https://randomuser.me/api/portraits/women/11.jpg" /><span>you</span></div>
+      <div class="story"><img src="https://randomuser.me/api/portraits/men/35.jpg" /><span>takashi</span></div>
+      <div class="story"><img src="https://randomuser.me/api/portraits/women/22.jpg" /><span>hana</span></div>
+      <div class="story"><img src="https://randomuser.me/api/portraits/men/12.jpg" /><span>kenta</span></div>
+      <div class="story"><img src="https://randomuser.me/api/portraits/women/44.jpg" /><span>sakura</span></div>
+    </div>
+
+    <!-- 投稿1 -->
+    <div class="post">
+      <div class="post-header">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" />
+        <span class="username">mikan_neko</span>
+      </div>
+      <img class="post-img" src="https://placekitten.com/800/800" alt="投稿1" />
+      <div class="post-icons">
+        <div>
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-comment"></i>
+          <i class="fa-regular fa-paper-plane"></i>
+        </div>
+        <i class="fa-regular fa-bookmark"></i>
+      </div>
+      <div class="likes">いいね 1,234件</div>
+      <div class="caption"><span class="username">mikan_neko</span> かわいい猫見つけた！</div>
+      <div class="time">2時間前</div>
+    </div>
+
+    <!-- 投稿2 -->
+    <div class="post">
+      <div class="post-header">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" />
+        <span class="username">ken_uma</span>
+      </div>
+      <img class="post-img" src="https://placekitten.com/801/800" alt="投稿2" />
+      <div class="post-icons">
+        <div>
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-comment"></i>
+          <i class="fa-regular fa-paper-plane"></i>
+        </div>
+        <i class="fa-regular fa-bookmark"></i>
+      </div>
+      <div class="likes">いいね 987件</div>
+      <div class="caption"><span class="username">ken_uma</span> 馬かわいい🐴</div>
+      <div class="time">4時間前</div>
+    </div>
+
+    <!-- ナビゲーションバー -->
+    <div class="bottom-nav">
+      <i class="fa-solid fa-house"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-square-plus"></i>
+      <i class="fa-solid fa-clapperboard"></i>
+      <i class="fa-regular fa-user"></i>
+    </div>
+<!-- 省略していた部分は前のコードと同じで、追加する投稿部分だけここに貼っておくね！ -->
+
+<!-- 投稿3（追加部分） -->
+<div class="post">
+  <div class="post-header">
+    <img src="https://randomuser.me/api/portraits/women/30.jpg" />
+    <span class="username">yuri_day</span>
+  </div>
+  <img class="post-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="投稿3" />
+  <div class="post-icons">
+    <div>
+      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-comment"></i>
+      <i class="fa-regular fa-paper-plane"></i>
+    </div>
+    <i class="fa-regular fa-bookmark"></i>
+  </div>
+  <div class="likes">いいね 1,001件</div>
+  <div class="caption"><span class="username">yuri_day</span> 夕焼けって癒される。</div>
+  <div class="time">6時間前</div>
+</div>
+
+  </div>
+
+</body>
+</html>
